@@ -1,0 +1,43 @@
+.profile-container {
+  max-width: 500px;
+  margin: 100px auto;
+  padding: 32px;
+  background-color: #1f1f1f;
+  color: white;
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  text-align: center;
+}
+
+.profile-container h2 {
+  color: #f0a500;
+  margin-bottom: 16px;
+  font-size: 28px;
+}
+
+.profile-container p {
+  font-size: 18px;
+  margin-bottom: 20px;
+  color: #ddd;
+}
+
+.profile-container strong {
+  color: #f0a500;
+}
+
+.profile-container button {
+  padding: 12px 24px;
+  background-color: #f0a500;
+  color: #1f1f1f;
+  font-weight: 600;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.profile-container button:hover {
+  background-color: #d28d00;
+}

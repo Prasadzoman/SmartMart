@@ -1,4 +1,7 @@
-require('dotenv').config();
+if (process.env.NODE_ENV !== "production") {
+    require('dotenv').config();
+}
+
 const express = require("express");
 const mongoose = require("mongoose");
 const cors = require("cors");
@@ -18,8 +21,9 @@ const productRouter=require("./routes/product")
 const chatbotRouter=require("./routes/chatbot")
 const url = `mongodb+srv://${process.env.DB_USERNAME}:${process.env.DB_PASSWORD}@cluster0.gdfl9i8.mongodb.net/SmartMart?retryWrites=true&w=majority&appName=Cluster0`
 
+app.set('trust proxy', 1);
 app.use(cors({
-  origin: "http://localhost:5173", 
+  origin: "https://smartmart-98f5.onrender.com", 
   credentials: true
 }));
 
@@ -35,6 +39,8 @@ app.use(
     store: MongoStore.create({ mongoUrl: url }),
     cookie: {
       httpOnly: true,
+      secure: true,
+      sameSite: "none",
       maxAge: 1000 * 60 * 60 * 24 * 7,
     },
   })

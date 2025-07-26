@@ -23,7 +23,7 @@ const url = `mongodb+srv://${process.env.DB_USERNAME}:${process.env.DB_PASSWORD}
 
 app.set('trust proxy', 1);
 app.use(cors({
-  origin: "https://smartmart-98f5.onrender.com", 
+  origin: "https://smartmart-client.onrender.com/", 
   credentials: true
 }));
 

@@ -9,7 +9,7 @@ const ReorderSuggestions = () => {
   useEffect(() => {
     const fetchSuggestions = async () => {
       try {
-        const res = await axios.get('http://localhost:3000/reorder', {
+        const res = await axios.get('https://smartmart-server.onrender.com/reorder', {
           withCredentials: true,
         });
         setSuggestions(res.data);

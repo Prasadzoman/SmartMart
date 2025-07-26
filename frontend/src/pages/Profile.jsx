@@ -16,7 +16,7 @@ const Profile = () => {
 
   const handleLogout = async () => {
     try {
-      await axios.post('http://localhost:3000/user/logout', {}, { withCredentials: true });
+      await axios.post('https://smartmart-server.onrender.com/user/logout', {}, { withCredentials: true });
       setUser(null);
       navigate('/login');
     } catch (err) {

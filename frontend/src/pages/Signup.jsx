@@ -16,7 +16,7 @@ const Signup = () => {
     e.preventDefault();
     try {
       const res = await axios.post(
-        'http://localhost:3000/user/register',
+        'https://smartmart-server.onrender.com/user/register',
         form,
         { withCredentials: true }
       );

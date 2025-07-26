@@ -17,7 +17,7 @@ const Chatbot = () => {
     setLoading(true);
 
     try {
-      const res = await axios.post("http://localhost:3000/chatbot", {
+      const res = await axios.post("https://smartmart-server.onrender.com/chatbot", {
         message: input,
       });
 

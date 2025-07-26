@@ -23,7 +23,7 @@ const Show = () => {
   useEffect(() => {
     const getProduct = async () => {
       try {
-        const res = await axios.get(`http://localhost:3000/product/${id}`);
+        const res = await axios.get(`https://smartmart-server.onrender.com/product/${id}`);
         setProduct(res.data);
       } catch (err) {
         console.error('Error fetching product:', err);

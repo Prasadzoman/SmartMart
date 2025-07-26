@@ -8,7 +8,7 @@ const UserProvider = ({ children }) => {
 
   const fetchUser = async () => {
     try {
-      const res = await axios.get('http://localhost:3000/user/me', {
+      const res = await axios.get('https://smartmart-server.onrender.com/user/me', {
         withCredentials: true,
       });
       setUser(res.data.user);
@@ -19,7 +19,7 @@ const UserProvider = ({ children }) => {
 
   const logout = async () => {
     try {
-      await axios.post('http://localhost:3000/user/logout', {}, { withCredentials: true });
+      await axios.post('https://smartmart-server.onrender.com/user/logout', {}, { withCredentials: true });
       setUser(null);
     } catch (err) {
       console.error('Logout failed', err);
@@ -29,7 +29,7 @@ const UserProvider = ({ children }) => {
   const addToCart = async (productId, quantity = 1) => {
     try {
       const res = await axios.post(
-        'http://localhost:3000/cart/add',
+        'https://smartmart-server.onrender.com/cart/add',
         { productId, quantity },
         { withCredentials: true }
       );
@@ -42,7 +42,7 @@ const UserProvider = ({ children }) => {
   const removeFromCart = async (productId) => {
     try {
       const res = await axios.post(
-        'http://localhost:3000/cart/remove',
+        'https://smartmart-server.onrender.com/cart/remove',
         { productId },
         { withCredentials: true }
       );

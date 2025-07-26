@@ -12,7 +12,7 @@ const Cart = () => {
 
   const fetchCart = async () => {
     try {
-      const res = await axios.get('http://localhost:3000/cart', {
+      const res = await axios.get('https://smartmart-server.onrender.com/cart', {
         withCredentials: true,
       });
       setCartItems(res.data.items);
@@ -29,7 +29,7 @@ const Cart = () => {
     }));
 
     await axios.post(
-      'http://localhost:3000/orders',
+      'https://smartmart-server.onrender.com/orders',
       { items }, 
       { withCredentials: true }
     );

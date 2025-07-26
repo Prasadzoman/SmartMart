@@ -11,7 +11,7 @@ const Orders = () => {
 
   const fetchOrders = async () => {
     try {
-      const res = await axios.get('http://localhost:3000/orders', {
+      const res = await axios.get('https://smartmart-server.onrender.com/orders', {
         withCredentials: true,
       });
       setOrders(res.data);

@@ -31,7 +31,7 @@ const fetchProductsByBrand = async (brand) => {
       description: p.generic_name || '',
       imageUrl: p.image_front_url || p.image_url || '',
 
-      // Nutritional values
+      
       energy_kcal_100g: p.nutriments?.energy_kcal_100g || null,
       fat_100g: p.nutriments?.fat_100g || null,
       saturated_fat_100g: p.nutriments?.['saturated-fat_100g'] || null,
@@ -52,26 +52,26 @@ const fetchProductsByBrand = async (brand) => {
 const seedDB = async () => {
   try {
     await Product.deleteMany({});
-    console.log('🧹 Cleared existing products');
+    console.log('Cleared existing products');
 
     for (const brand of brands) {
       try {
-        console.log(`🔍 Fetching products for brand: ${brand}`);
+        console.log(`Fetching products for brand: ${brand}`);
         const products = await fetchProductsByBrand(brand);
         await Product.insertMany(products);
-        console.log(`✅ Inserted ${products.length} items for ${brand}`);
+        console.log(`Inserted ${products.length} items for ${brand}`);
       } catch (error) {
-        console.error(`❌ Seeding failed for ${brand}:`, error.message);
+        console.error(`Seeding failed for ${brand}:`, error.message);
       }
 
       await new Promise(resolve => setTimeout(resolve, 3000));
     }
 
-    console.log('🌱 Seeding complete!');
+    console.log('Seeding complete!');
     mongoose.connection.close();
     process.exit(0);
   } catch (err) {
-    console.error('❌ Seeding failed:', err);
+    console.error('Seeding failed:', err);
     process.exit(1);
   }
 };
@@ -82,10 +82,10 @@ const start = async () => {
       useNewUrlParser: true,
       useUnifiedTopology: true,
     });
-    console.log('✅ Connected to MongoDB');
+    console.log('Connected to MongoDB');
     await seedDB();
   } catch (error) {
-    console.error('❌ MongoDB connection failed:', error);
+    console.error('MongoDB connection failed:', error);
     process.exit(1);
   }
 };

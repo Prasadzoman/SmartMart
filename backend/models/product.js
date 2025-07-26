@@ -19,7 +19,7 @@ const ProductSchema = new mongoose.Schema({
   description: String,
   imageUrl: String,
 
-  // 🍎 Nutritional Values (per 100g or 100ml)
+  
   energy_kcal_100g: Number,
   fat_100g: Number,
   saturated_fat_100g: Number,
@@ -29,7 +29,7 @@ const ProductSchema = new mongoose.Schema({
   proteins_100g: Number,
   salt_100g: Number,
 
-  // 🚨 Extra metadata
+  
   nutriscore_grade: {
   type: String,
   enum: ['a', 'b', 'c', 'd', 'e', 'unknown', 'not-applicable'],

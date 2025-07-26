@@ -30,12 +30,12 @@ const Cart = () => {
 
     await axios.post(
       'http://localhost:3000/orders',
-      { items }, // ✅ send correct data
+      { items }, 
       { withCredentials: true }
     );
 
     alert('Order placed successfully!');
-    fetchCart(); // refresh cart
+    fetchCart(); 
   } catch (err) {
     console.error('Order failed:', err);
     alert('Order failed!');

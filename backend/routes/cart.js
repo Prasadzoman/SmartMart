@@ -4,7 +4,7 @@ const Cart = require('../models/cart');
 const Product = require('../models/product');
 const { isLoggedIn } = require('../middleware'); 
 
-// ✅ Add to cart
+
 router.post('/add', isLoggedIn, async (req, res) => {
   const { productId, quantity = 1 } = req.body;
   const userId = req.user._id;
@@ -33,7 +33,7 @@ router.post('/add', isLoggedIn, async (req, res) => {
   }
 });
 
-// ✅ Remove from cart
+
 router.post('/remove', isLoggedIn, async (req, res) => {
   const { productId } = req.body;
   const userId = req.user._id;
@@ -54,7 +54,7 @@ router.post('/remove', isLoggedIn, async (req, res) => {
   }
 });
 
-// ✅ View cart
+
 router.get('/', isLoggedIn, async (req, res) => {
   const userId = req.user._id;
 

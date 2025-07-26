@@ -12,7 +12,7 @@ router.post("/", async (req, res) => {
 
     const filters = {};
 
-    // Health-based filters
+    
     if (condition === "diabetes") {
       filters.sugars_100g = { $lte: 5 };
     } else if (condition === "hypertension") {
@@ -21,14 +21,14 @@ router.post("/", async (req, res) => {
       filters.description = /iron|spinach/i;
     }
 
-    // Price filtering based on keywords like "under 100", "below 50"
+    
     const priceMatch = message.match(/(?:under|below|less than)\s*(\d+)/i);
     if (priceMatch) {
       const maxPrice = parseInt(priceMatch[1]);
       filters.price = { $lte: maxPrice };
     }
 
-    // Category filtering based on keywords like "snacks", "ice cream"
+    
     const knownCategories = ["snacks", "juice", "dairies", "ice cream", "beverages"];
     const foundCategory = knownCategories.find((cat) =>
       message.toLowerCase().includes(cat.toLowerCase())

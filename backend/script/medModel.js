@@ -8,7 +8,6 @@ const CONDITIONS = [
   "allergies"
 ];
 
-// 🔹 Use sentence-similarity inference pipeline
 async function detectCondition(userMessage) {
   try {
     const response = await axios.post(
@@ -31,10 +30,10 @@ async function detectCondition(userMessage) {
     const maxIndex = scores.indexOf(Math.max(...scores));
     const bestCondition = CONDITIONS[maxIndex];
 
-    console.log("🔍 Best match:", bestCondition);
+    console.log("Best match:", bestCondition);
     return bestCondition;
   } catch (err) {
-    console.error("❌ Error in detectCondition:", err.response?.data || err.message);
+    console.error("Error in detectCondition:", err.response?.data || err.message);
     throw new Error("Failed to detect health condition.");
   }
 }

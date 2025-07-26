@@ -10,6 +10,7 @@ import Profile from './pages/Profile';
 import Orders from './pages/Orders';
 import Cart from './pages/Cart';
 import ReorderSuggestions from './pages/ReorderSuggestions';
+import Footer from './components/Footer';
 function App() {
   
   return (
@@ -26,7 +27,7 @@ function App() {
         <Route path="/cart" element={<Cart />} />
         <Route path="/suggestions" element={<ReorderSuggestions />} />
       </Routes>
-   
+   <Footer></Footer>
     </>
   )
 }

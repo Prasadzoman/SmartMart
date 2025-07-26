@@ -26,7 +26,6 @@ const UserProvider = ({ children }) => {
     }
   };
 
-  // ✅ Add to Cart
   const addToCart = async (productId, quantity = 1) => {
     try {
       const res = await axios.post(
@@ -40,7 +39,6 @@ const UserProvider = ({ children }) => {
     }
   };
 
-  // ✅ Remove from Cart
   const removeFromCart = async (productId) => {
     try {
       const res = await axios.post(

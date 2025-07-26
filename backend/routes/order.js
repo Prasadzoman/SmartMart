@@ -3,13 +3,12 @@ const Order = require('../models/order');
 const Product = require('../models/product');
 const router = express.Router();
 const Cart = require('../models/cart');
-// Middleware to check auth
+
 const isLoggedIn = (req, res, next) => {
   if (req.isAuthenticated()) return next();
   return res.status(401).json({ message: "Unauthorized" });
 };
 
-// POST /order - Place a new order
 router.post('/', isLoggedIn, async (req, res) => {
   const { items } = req.body;
 
@@ -32,7 +31,6 @@ router.post('/', isLoggedIn, async (req, res) => {
   }
 });
 
-// GET /order - View user's orders
 router.get('/', isLoggedIn, async (req, res) => {
   try {
     const orders = await Order.find({ user: req.user._id }).populate('items.product');

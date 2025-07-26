@@ -18,7 +18,6 @@ const productRouter=require("./routes/product")
 const chatbotRouter=require("./routes/chatbot")
 const url = `mongodb+srv://${process.env.DB_USERNAME}:${process.env.DB_PASSWORD}@cluster0.gdfl9i8.mongodb.net/SmartMart?retryWrites=true&w=majority&appName=Cluster0`
 
-// Middleware
 app.use(cors({
   origin: "http://localhost:5173", 
   credentials: true
@@ -27,7 +26,6 @@ app.use(cors({
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
-//auth setup
 
 app.use(
   session({
@@ -49,7 +47,6 @@ passport.use(new LocalStrategy({ usernameField: "email" }, User.authenticate()))
 passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
 
-// Connect to MongoDB
 mongoose.connect(url, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
@@ -57,7 +54,6 @@ mongoose.connect(url, {
 .then(() => console.log("Connected to MongoDB"))
 .catch((err) => console.error("MongoDB connection error:", err));
 
-// Routes
 app.use("/product", productRouter);
 
 app.use("/chatbot", chatbotRouter);
@@ -69,7 +65,6 @@ app.use("/orders",orderRouter);
 app.use("/cart",cartRouter);
 
 app.use('/reorder', reorderRouter);
-// Start server
 const PORT = 3000;
 app.listen(PORT, () => {
   console.log(`🚀 Server running on http://localhost:${PORT}`);

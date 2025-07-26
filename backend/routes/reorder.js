@@ -6,7 +6,7 @@ const Product = require('../models/product');
 const router = express.Router();
 
 router.get('/', isLoggedIn, async (req, res) => {
-  console.log("🔁 Reorder route hit");
+  console.log("Reorder route hit");
 
   try {
     const predictions = await predictReorders();
@@ -35,10 +35,9 @@ router.get('/', isLoggedIn, async (req, res) => {
         })
     );
 
-    // Filter out nulls in case a product wasn't found
     res.json(userPredictions.filter(Boolean));
   } catch (err) {
-    console.error('❌ Prediction error:', err);
+    console.error('Prediction error:', err);
     res.status(500).json({ error: 'Failed to generate predictions' });
   }
 });
